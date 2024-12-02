@@ -1,5 +1,9 @@
 {
     "Lua.diagnostics.globals": [
         "lovr"
+    ],
+    "Lua.diagnostics.disable": [
+        "different-requires",
+        "duplicate-set-field"
     ]
 }

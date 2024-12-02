@@ -6,6 +6,8 @@ A game engine written in [LUA](https://en.wikipedia.org/wiki/Lua_(programming_la
     - These are useful starting places for new games/projects.
 
 ### EC components list:
-- [Window](/src/ec/fons/init/window.lua)
+- [Fonsbase](/src/ec/fons/base/fonsbase.lua)
+- [Colourprint](/src/ec/fons/base/utils/colourprint.lua)
 - [RFloorGrid](/src/ec/fons/objects/floorgrid/RFloorGrid.lua) (Broken/Rough floor-grid)
 - [SFloorGrid](/src/ec/fons/objects/floorgrid/SFloorGrid.lua) (Smooth floor-grid)
+- [RCube](/src/ec/fons/objects/cubes/RCube.lua) (Rotating cube)

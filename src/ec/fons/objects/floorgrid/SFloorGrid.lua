@@ -1,11 +1,20 @@
 -- Fons Engine
 -- src/ec/sfloorgrid/SFloorGrid.lua
 
+-- Update package.path to include the src/ec/base directory for module resolution
+package.path = package.path .. ";src/ec/fons/base/?.lua"  -- Ensures Lua can find the modules in the base folder
+
+-- Import the base module (located in src/ec/fons/base/)
+local fons = require("fons.base.fonsbase")
+
+local colourprint = require('utils.colourprint')
+
 local sfloorgrid = {}
+local FloorDrawn = false
 
 -- Define the load function that uses lovr
 function sfloorgrid.lovrLoad()
-    shader = lovr.graphics.newShader([[
+    Shader = lovr.graphics.newShader([[
         vec4 lovrmain() {
             return DefaultPosition;
         }
@@ -35,8 +44,13 @@ end
 
 -- Define the draw function that uses lovr
 function sfloorgrid.lovrDraw(pass)
-    pass:setShader(shader)
+    pass:setShader(Shader)
     pass:plane(0, 0, 0, 25, 25, -math.pi / 2, 1, 0, 0)
+
+    if not FloorDrawn then
+        colourprint.green("[!FONS ENGINE] ", false) colourprint.default("SFloorGrid drawn")
+        FloorDrawn = true
+    end
 end
 
 -- Return the sfloorgrid table so other files can use it
