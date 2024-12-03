@@ -23,12 +23,14 @@ local RCube = require("ec.fons.objects.cubes.RCube")
 function lovr.load()
   fons.init()                -- Initialize the base engine module
   SFloorGrid.lovrLoad()      -- Assuming SFloorGrid has a lovrLoad function
-  RCube.addCube("assets/logos/1024x1024logodark.png", {0, 1.5, -2}, 1) -- cube
+  RCube.addCube("assets/textures/blank.png", {0, 1.5, -2}, 1) -- cube
 end
 
 -- Draw and handle window updates
 ---@diagnostic disable-next-line: duplicate-set-field
 function lovr.draw(pass)
   SFloorGrid.lovrDraw(pass)  -- Assuming SFloorGrid has a lovrDraw function
+  
+  pass:setShader()
   RCube.lovrDraw(pass)       -- Draw the rotating cube
 end
